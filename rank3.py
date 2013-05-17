@@ -6,11 +6,11 @@ from collections import Counter
 import marshal
 import itertools
 
-c_url = .8
-c_body = 1
+c_url = .3
+c_body = .8
 c_title = 3.7
-c_anchor = 10
-c_header = 1.9
+c_anchor = 11
+c_header = 1.8
 smoothing_factor = 500
 df_dict = {}
 B = 2
@@ -61,25 +61,43 @@ def extractFeatures(featureFile):
     return (queries, features) 
 
 def scale(raw):
-  if raw == 0:
-    return 0.0
-  return float(1)+math.log(raw)
+  return raw
+  # if raw == 0:
+  #   return 0.0
+  # return float(1)+math.log(raw)
 
 def get_idf(df):
   # check N
   return math.log((float(98998)+1)/(df+1))
 
 
-def get_smallest_window_from_map(query, found):
-  print 'hello\n'
-  sw = float('inf')
-  possible_windows = list(itertools.product(*found))
+def indexes_inbound(indexes, found):
+  for qw in range(len(found)):
+    if indexes[qw] >= len(found[qw]):
+      return False
+  return True
 
-  for window in possible_windows:
-    print window
-    w = max(window) - min(window) + 1
+def get_window(indexes, found):
+  values = get_values(indexes,found)
+  return max(values) - min(values) + 1
+
+def get_values(indexes,found):
+  return [found[i][indexes[i]] for i in range(len(found))]
+
+def get_smallest_window_from_map(query, found):
+  # get first index
+  indexes = [0] * len(found)
+  sw = float('inf')
+  while indexes_inbound(indexes, found):
+    w = get_window(indexes, found)
     if w < sw:
       sw = w
+
+    cur_min = min(get_values(indexes, found))
+    for i in range(len(found)):
+      if found[i][indexes[i]] == cur_min:
+        indexes[i] = indexes[i]+1
+
   return sw
 
 def get_smallest_window(features, url, query):
@@ -171,17 +189,18 @@ def get_smallest_window(features, url, query):
 def cosine_score(features, url, query):
   # fetching doc info with original query string
   doc_info = features[query][url]
-  print "calculating window" 
+
   q = get_smallest_window(features, url, query)
 
-  print "calculating score"
   # removes query term duplicates
+  query_with_dupes = query.split()
   query = list(set(query.split()))
   query_vector = []
 
   # weight query tf by idf
   for qw in query:
     query_vector.append(1.0 * get_idf(df_dict[qw]))
+    #query_vector.append(query_with_dupes.count(qw) * get_idf(df_dict[qw]))
 
   # make doc vector
   url_vector = []
@@ -251,8 +270,9 @@ def cosine_score(features, url, query):
   elif q == len(query):
     boost = B
   else:
-    boost = (B-1) * math.pow(math.e, -q+1) + 1
- 
+    normal_q = q/len(query)
+    boost = (B-1)* 1 / normal_q + 1
+
   doc_vector = [url_vector[i] + title_vector[i] + body_vector[i] + header_vector[i] + anchor_vector[i] for i in range(len(query_vector))]
   score = sum([query_vector[i] * doc_vector[i] for i in range(len(query_vector))]) 
   return score * boost
@@ -296,7 +316,6 @@ def main(featureFile):
     #populate map with features from file
     (queries, features) = extractFeatures(featureFile)
 
-    print "calling ranking"
     #calling baseline ranking system, replace with yours
     rankedQueries = baseline(queries, features)
     
