@@ -1,7 +1,8 @@
+from __future__ import division
 import sys
 import re
 from math import log
-from __future__ import division
+import marshal
 
 df_dict = {}
 
@@ -58,16 +59,16 @@ def extractFeatures(featureFile):
       elif(key == 'body_length' or key == 'pagerank'):
         features[query][url][key] = int(value)
         if (key == 'body_length'):
-          count_number[key] += 1
-          count_total[key] += int(value)
+          count_number['body'] += 1
+          count_total['body'] += int(value)
       elif(key == 'anchor_text'):
         anchor_text = value
         if 'anchors' not in features[query][url]:
           features[query][url]['anchors'] = {}
       elif(key == 'stanford_anchor_count'):
         features[query][url]['anchors'][anchor_text] = int(value)
-        count_number[key] += int(value)
-        count_total[key] += int(value) * len(anchor_text.split())
+        count_number['anchors'] += int(value)
+        count_total['anchors'] += int(value) * len(anchor_text.split())
       
     f.close()
 
@@ -80,38 +81,87 @@ def extractFeatures(featureFile):
 
     return (queries, features, averages) 
 
+def get_idf(df):
+  # check N
+  return log((float(98998)+1)/(df+1))
+
+
+K1 = 1.22
+l = 1.76
+l_p = 1.1
+b = .76
+
+print >> sys.stderr, K1
+print >> sys.stderr, l
+print >> sys.stderr, l_p
+print >> sys.stderr, b
+
 def BM25F_score(query, features, averages, url):
+
+  global K1
+  global l
+  global l_p
+  global b
 
   doc_info = features[query][url]
   q = list(set(query.split()))
   fields = ['body', 'url', 'title', 'header', 'anchors']
-  W_f = {'body': 1,
-         'url': 1,
-         'title': 1,
-         'header': 1,
-         'anchors': 1}
-  B_f = {'body': 1,
-         'url': 1,
-         'title': 1,
-         'header': 1,
-         'anchors': 1}
+  
+  W_f = {'body': .95,
+         'url': 1.1,
+         'title': 3.76,
+         'header': 1.9,
+         'anchors': 10}
+
+  V_j = log(l_p + doc_info['pagerank'])
+  q_score = 0
 
   for term in q:
     w_dt = 0
     for field in fields:
       tf = 0
       ftf = 0
-      if field != 'url':
-        tf = doc_info[field].count(term)
-        ftf = tf / (1 + B_f[field] * \
-          (len(doc_info[field].split()) / averages[field] - 1))
-      else:
-        tokens = re.findall(r"\w+",doc_info[field].lower())
+      
+      if field == 'url':
+        tokens = re.findall(r"\w+",url.lower())
+        B_f = 1 - b + b * len(tokens) / averages[field]
         tf = tokens.count(term)
-        ftf = tf / (1 + B_f[field] * \
+        ftf = tf / (1 + B_f * \
           (len(tokens) / averages[field] - 1))
+      elif field == 'body':
+        if 'body_hits' in doc_info:
+          B_f = 1 - b + b * doc_info['body_length'] / averages[field]
+          if term in doc_info['body_hits']:
+            tf = len(doc_info['body_hits'][term])
+            ftf = tf / (1 + B_f * \
+              (doc_info['body_length'] / averages[field] - 1))
+      elif field == 'header':
+        if field in doc_info:
+          for h in doc_info[field]:
+            h_list = h.split()
+            B_f = 1 - b + b * len(h_list) / averages[field]
+            tf = h_list.count(term)
+            ftf = tf / (1 + B_f * \
+              (len(h_list) / averages[field] - 1))
+      elif field == 'anchors':
+        if field in doc_info:
+          for key in doc_info[field].keys():
+            anchor_list = key.split()
+            B_f = 1 - b + b * len(anchor_list) / averages[field]
+            tf = anchor_list.count(term)
+            ftf = tf / (1 + B_f * \
+              (len(anchor_list) / averages[field] - 1))
+      else:
+        B_f = 1 - b + b * len(doc_info[field].split()) / averages[field]
+        tf = doc_info[field].count(term)
+        ftf = tf / (1 + B_f * \
+          (len(doc_info[field].split()) / averages[field] - 1))
+
       w_dt += W_f[field] * ftf
-    score = w_dt / (K1 + w_dt) * 
+    q_score += w_dt / (K1 + w_dt) * get_idf(df_dict[term]) + \
+      l * V_j
+
+  return q_score
 
 
 
