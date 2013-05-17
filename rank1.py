@@ -5,11 +5,11 @@ import math
 from collections import Counter
 import marshal
 
-c_url = 1
+c_url = .8
 c_body = 1
-c_title = 1
-c_anchor = 1
-c_header = 1
+c_title = 3.7
+c_anchor = 10
+c_header = 1.9
 smoothing_factor = 500
 df_dict = {}
 
@@ -59,11 +59,13 @@ def extractFeatures(featureFile):
     return (queries, features) 
 
 def scale(raw):
+  if raw == 0:
+    return 0.0
   return float(1)+math.log(raw)
 
 def get_idf(df):
   # check N
-  return math.log(float(99008)/df)
+  return math.log((float(98998)+1)/(df+1))
 
 def cosine_score(features, url, query):
   # fetching doc info with original query string
@@ -152,7 +154,6 @@ def cosine_score(features, url, query):
 def baseline(queries, features):
     rankedQueries = {}
     for query in queries.keys():
-      print "query: " + query
       results = queries[query]
       rankedQueries[query] = sorted(results, key = lambda x: cosine_score(features, x, query) , reverse = True )
 
