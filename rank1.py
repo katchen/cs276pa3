@@ -5,11 +5,11 @@ import math
 from collections import Counter
 import marshal
 
-c_url = 1
+c_url = .8
 c_body = 1
-c_title = 1
-c_anchor = 1
-c_header = 1
+c_title = 3.7
+c_anchor = 10
+c_header = 1.9
 smoothing_factor = 500
 df_dict = {}
 
