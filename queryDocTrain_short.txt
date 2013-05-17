@@ -1,0 +1,177 @@
+query: stanford live
+  url: http://live.stanford.edu/aboutus/staff.php
+    title: stanford live & bing concert hall staff
+    header: stanford live & bing concert hall staff
+    body_hits: stanford 1 21 25 33 90 130 209 216 223 233 241 248 254 259
+    body_hits: live 2 34 91 131 210
+    body_length: 264
+    pagerank: 6
+  url: http://live.stanford.edu/month_list.php?filter=main
+    title: stanford live upcoming events full calendar
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with jon nakamatsu piano
+    header: the beethoven project stanford philharmonia orchestra jindong cai music director and conductor with jon nakamatsu piano
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with stanford symphonic chorus
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with stanford symphonic chorus
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor
+    header: the beethoven project stanford philharmonia orchestra jindong cai music director and conductor jon nakamatsu piano
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor jon nakamatsu piano
+    header: the beethoven project stanford philharmonia orchestra stephen m sano conductor with stanford symphonic chorus
+    header: choir of new college oxford edward higginbottom director with guests stanford chamber chorale stephen m sano director
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with jon nakamatsu piano
+    body_hits: stanford 1 21 25 33 104 106 110 113 136 146 213 235 305 354 511 523 723 834 932 1125 1208 1257 1264 1271 1281 1289 1296 1302 1307
+    body_hits: live 2 34 105 111 599 1258
+    body_length: 1312
+    pagerank: 6
+    anchor_text: http live stanford edu month_list php filter main
+      stanford_anchor_count: 4
+  url: http://live.stanford.edu/aboutus/contactus.php
+    title: contact stanford live
+    header: contact stanford live
+    header: stanford ticket office
+    header: stanford live administrative office
+    body_hits: stanford 1 21 25 33 90 135 142 146 154 156 161 191 194 204 414 464 471 478 488 496 503 509 514
+    body_hits: live 2 34 91 143 195 465
+    body_length: 519
+    pagerank: 6
+  url: http://live.stanford.edu/aboutus/faqs.php
+    title: stanford live faq
+    header: stanford live faqs
+    header: what is stanford live
+    header: how can i get updates about stanford live
+    body_hits: stanford 1 21 25 33 108 116 120 221 226 234 257 260 265 294 304 311 321 336 368 388 421 502 758 786 793 800 810 818 825 831 836
+    body_hits: live 2 34 109 117 235 261 295 322 369 422 787
+    body_length: 841
+    pagerank: 6
+    anchor_text: stanford live faqs
+      stanford_anchor_count: 212
+  url: http://live.stanford.edu/Venues/boxinfo.php
+    title: how to buy tickets
+    header: stanford students all tickets just $10
+    header: stanford faculty staff
+    header: non stanford students save $5 off adult ticket prices
+    body_hits: stanford 1 21 25 33 122 126 134 136 174 206 468 482 510 543 562 576 707 765 782 888 935 970 973 991 1010 1017 1024 1034 1042 1049 1055 1060
+    body_hits: live 2 34 123 175 207 483 708 992 1011
+    body_length: 1065
+    pagerank: 6
+    anchor_text: http live stanford edu venues boxinfo php discounts
+      stanford_anchor_count: 1
+    anchor_text: stanford live
+      stanford_anchor_count: 2
+    anchor_text: http livelyarts stanford edu venues boxinfo php discounts
+      stanford_anchor_count: 1
+  url: http://binghall.stanford.edu/
+    title: bing concert hall
+    header: stanford student get involved
+    body_hits: stanford 1 21 25 33 116 239 249 260 453 457 473 480 487 497 505 512 518 523
+    body_hits: live 2 34 436 454 474
+    body_length: 528
+    pagerank: 6
+    anchor_text: http live stanford edu bingconcerthall
+      stanford_anchor_count: 1
+    anchor_text: http binghall stanford edu
+      stanford_anchor_count: 2
+    anchor_text: learn more about bing concert hall at http binghall stanford edu
+      stanford_anchor_count: 1
+  url: http://live.stanford.edu/presenter.php?code=LIVE
+    title: stanford lively arts view by presenter
+    header: stanford live
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with jon nakamatsu piano
+    header: the beethoven project stanford philharmonia orchestra jindong cai music director and conductor with jon nakamatsu piano
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with stanford symphonic chorus
+    body_hits: stanford 1 21 25 33 104 106 110 113 136 220 359 366 373 383 391 398 404 409
+    body_hits: live 2 34 105 111 360
+    body_length: 414
+    pagerank: 5
+    anchor_text: stanford live
+      stanford_anchor_count: 158
+  url: http://live.stanford.edu/aboutus/
+    title: welcome to stanford live
+    header: welcome to stanford live
+    body_hits: stanford 1 21 25 33 90 118 141 163 168 180 185 204 226 253 258 286 297 327 359 378 389 420 427 434 444 452 459 465 470
+    body_hits: live 2 34 91 131 142 169 181 227 254 287 328 360 374 390 421
+    body_length: 475
+    pagerank: 6
+  url: http://live.stanford.edu/month_list.php
+    title: stanford live upcoming events full calendar
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with jon nakamatsu piano
+    header: stanford taiko spring concert
+    header: the beethoven project stanford philharmonia orchestra jindong cai music director and conductor with jon nakamatsu piano
+    header: stanford wind ensemble
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with stanford symphonic chorus
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with stanford symphonic chorus
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor
+    header: the beethoven project stanford philharmonia orchestra jindong cai music director and conductor jon nakamatsu piano
+    header: stanford pan asian music festival masters and masterpieces featuring members of the china national orchestra
+    header: stanford pan asian music festival chinese new year's concert featuring the china national orchestra
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor jon nakamatsu piano
+    header: the beethoven project stanford symphony orchestra jindong cai music director and conductor with jon nakamatso piano
+    header: stanford jazz orchestra frederick berry directs the stanford jazz orchestra with special guest rufus reed bass
+    header: the liebeslieder project stanford chamber chorale with the dance division of theatre & performance studies
+    header: stanford wind ensemble
+    header: the beethoven project stanford philharmonia orchestra stephen m sano conductor with stanford symphonic chorus
+    header: open rehearsal choir of new college oxford edward higginbottom director with guests stanford chamber chorale stephen m sano director
+    header: choir of new college oxford edward higginbottom director with guests stanford chamber chorale stephen m sano director
+    body_hits: stanford 1 21 25 33 104 106 110 113 136 146 214 245 281 350 369 418 450 483 496 600 642 709 721 790 794 806 984 1066 1084 1173 1213 1242 1260 1278 1296 1340 1368 1445 1696 1741 1849 1856 1863 1873 1881 1888 1894 1899
+    body_hits: live 2 34 105 111 791 830 1850
+    body_length: 1904
+    pagerank: 6
+    anchor_text: stanford lively arts 2009 2010 season
+      stanford_anchor_count: 1
+    anchor_text: stanford live
+      stanford_anchor_count: 1
+    anchor_text: stanford lively arts calendar
+      stanford_anchor_count: 12
+    anchor_text: stanford lively arts season
+      stanford_anchor_count: 2
+  url: http://live.stanford.edu/
+    title: stanford live
+    body_hits: stanford 1 21 25 33 125 182 189 196 206 214 221 227 232
+    body_hits: live 2 34 183
+    body_length: 237
+    pagerank: 7
+    anchor_text: stanford live
+      stanford_anchor_count: 209
+    anchor_text: stanford lively arts
+      stanford_anchor_count: 204
+    anchor_text: http live stanford edu
+      stanford_anchor_count: 3
+    anchor_text: lively arts stanford live
+      stanford_anchor_count: 2
+    anchor_text: stanford lively arts schedule
+      stanford_anchor_count: 1
+    anchor_text: http livelyarts stanford edu
+      stanford_anchor_count: 200
+    anchor_text: live stanford edu
+      stanford_anchor_count: 1
+    anchor_text: stanford livelyarts
+      stanford_anchor_count: 5
+    anchor_text: livelyarts stanford edu
+      stanford_anchor_count: 3
+    anchor_text: lively arts at stanford
+      stanford_anchor_count: 10
+    anchor_text: stanford lively arts great performances with student discounts
+      stanford_anchor_count: 1
+    anchor_text: stanford university lively arts
+      stanford_anchor_count: 1
+    anchor_text: stanford live website
+      stanford_anchor_count: 1
+    anchor_text: stanford livey arts
+      stanford_anchor_count: 3
+    anchor_text: ttp livelyarts stanford edu
+      stanford_anchor_count: 1
+    anchor_text: stanford lively art
+      stanford_anchor_count: 1
+    anchor_text: stanford lively arts website
+      stanford_anchor_count: 1
+    anchor_text: stanford events through the ticket office
+      stanford_anchor_count: 3
+    anchor_text: stanford lively arts program
+      stanford_anchor_count: 1
+    anchor_text: stanford lively arts 2010 11 season tickets on sale now
+      stanford_anchor_count: 1
+    anchor_text: stanford lively arts 2010 11 season tickets on sale soon
+      stanford_anchor_count: 1
+    anchor_text: visit the stanford lively arts website
+      stanford_anchor_count: 1
+    anchor_text: terence blanchard quintet and stanford symphony orchestra requiem for katrina march 06 2010 8 00pm memorial
+      stanford_anchor_count: 1

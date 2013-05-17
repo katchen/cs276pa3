@@ -1,0 +1,12 @@
+query: stanford live
+query: stanford live
+  url: http://live.stanford.edu/
+  url: http://live.stanford.edu/presenter.php?code=LIVE
+  url: http://live.stanford.edu/aboutus/faqs.php
+  url: http://live.stanford.edu/aboutus/staff.php
+  url: http://live.stanford.edu/aboutus/
+  url: http://live.stanford.edu/aboutus/contactus.php
+  url: http://live.stanford.edu/Venues/boxinfo.php
+  url: http://live.stanford.edu/month_list.php?filter=main
+  url: http://binghall.stanford.edu/
+  url: http://live.stanford.edu/month_list.php
