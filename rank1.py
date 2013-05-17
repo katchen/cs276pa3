@@ -59,11 +59,13 @@ def extractFeatures(featureFile):
     return (queries, features) 
 
 def scale(raw):
+  if raw == 0:
+    return 0.0
   return float(1)+math.log(raw)
 
 def get_idf(df):
   # check N
-  return math.log(float(99008)/df)
+  return math.log((float(98998)+1)/(df+1))
 
 def cosine_score(features, url, query):
   # fetching doc info with original query string
@@ -152,7 +154,6 @@ def cosine_score(features, url, query):
 def baseline(queries, features):
     rankedQueries = {}
     for query in queries.keys():
-      print "query: " + query
       results = queries[query]
       rankedQueries[query] = sorted(results, key = lambda x: cosine_score(features, x, query) , reverse = True )
 
