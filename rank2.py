@@ -86,10 +86,10 @@ def get_idf(df):
   return log((float(98998)+1)/(df+1))
 
 
-K1 = 1.22
+K1 = 1.4
 l = 1.76
 l_p = 1.1
-b = .76
+b = .75
 
 print >> sys.stderr, K1
 print >> sys.stderr, l
@@ -107,11 +107,12 @@ def BM25F_score(query, features, averages, url):
   q = list(set(query.split()))
   fields = ['body', 'url', 'title', 'header', 'anchors']
   
-  W_f = {'body': .95,
-         'url': 1.1,
+  W_f = {'body': .1,
+         'url': 1,
          'title': 3.76,
          'header': 1.9,
-         'anchors': 10}
+         'anchors': 11}
+
 
   V_j = log(l_p + doc_info['pagerank'])
   q_score = 0

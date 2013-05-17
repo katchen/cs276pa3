@@ -5,11 +5,11 @@ import math
 from collections import Counter
 import marshal
 
-c_url = .8
-c_body = 1
+c_url = .3
+c_body = .8
 c_title = 3.7
-c_anchor = 10
-c_header = 1.9
+c_anchor = 11
+c_header = 1.8
 smoothing_factor = 500
 df_dict = {}
 
@@ -59,9 +59,10 @@ def extractFeatures(featureFile):
     return (queries, features) 
 
 def scale(raw):
-  if raw == 0:
-    return 0.0
-  return float(1)+math.log(raw)
+  return raw
+  # if raw == 0:
+  #   return 0.0
+  # return float(1)+math.log(raw)
 
 def get_idf(df):
   # check N
@@ -72,12 +73,14 @@ def cosine_score(features, url, query):
   doc_info = features[query][url]
 
   # removes query term duplicates
+  query_with_dupes = query.split()
   query = list(set(query.split()))
   query_vector = []
 
   # weight query tf by idf
   for qw in query:
     query_vector.append(1.0 * get_idf(df_dict[qw]))
+    #query_vector.append(query_with_dupes.count(qw) * get_idf(df_dict[qw]))
 
   # make doc vector
   url_vector = []
